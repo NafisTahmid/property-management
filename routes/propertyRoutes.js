@@ -9,9 +9,9 @@ import {
 } from "../controllers/propertyController.js";
 const router = express.Router();
 
-router.post("/add", authMiddleware, createPropertyController);
-router.get("/all", getPropertiesController);
-router.get("/:pk", getPropertyController);
-router.patch("/:id", updatePropertyController);
-router.delete("/:id", authMiddleware, deletePropertyController);
+router.post("/property", authMiddleware, createPropertyController);
+router.get("/properties", getPropertiesController);
+router.get("/property/:id", getPropertyController);
+router.put("/property/:id", updatePropertyController);
+router.delete("/property/:id", authMiddleware, deletePropertyController);
 export default router;

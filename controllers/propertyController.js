@@ -42,7 +42,7 @@ export const getPropertiesController = async (req, res) => {
 };
 export const getPropertyController = async (req, res) => {
   try {
-    const property = await Property.findByPk(req.params.pk);
+    const property = await Property.findByPk(req.params.id);
     if (!property) {
       return res
         .status(404)

@@ -38,7 +38,7 @@ export const registerController = async (req, res) => {
       password: hashedPassword,
     });
 
-    const token = generateToken({ _id: newUser._id, username: username });
+    const token = generateToken({ id: newUser.id, username: username });
     return res.status(201).json({ token, success: true });
   } catch (error) {
     return res
@@ -68,7 +68,7 @@ export const loginController = async (req, res) => {
           .json({ message: "Incorrect password", success: false });
       } else {
         const token = generateToken({
-          _id: existingUser._id,
+          id: existingUser.id,
           username: existingUser.username,
         });
         return res.status(200).json({ token, success: true });
@@ -95,5 +95,37 @@ export const getAllUsersController = async (req, res) => {
   }
 };
 const generateToken = (data) => {
-  return jsonwebtoken.sign(data, process.env.JWT_SECRET, { expiresIn: "2d" });
+  return jsonwebtoken.sign({ data }, process.env.JWT_SECRET, {
+    expiresIn: "2d",
+  });
+};
+
+export const createAdminUser = async (req, res) => {
+  try {
+    const { username, email, password } = req.body;
+    const joiValidation = createUserSchema.validate(req.body);
+    if (joiValidation.error) {
+      return res.status(400).json(joiValidation.error.details[0].message);
+    }
+    const existingUser = await User.findOne({ where: { email: email } });
+    if (existingUser) {
+      return res
+        .status(401)
+        .json({ message: "User already exists", success: false });
+    }
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const newUser = await User.create({
+      username,
+      email,
+      password: hashedPassword,
+      role: "admin",
+    });
+
+    const token = generateToken({ id: newUser.id, username: username });
+    return res.status(201).json({ token, success: true });
+  } catch (error) {
+    return res
+      .status(500)
+      .json({ message: "Something went wrong!!!", success: false });
+  }
 };

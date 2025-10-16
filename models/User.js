@@ -25,6 +25,15 @@ const User = sequelize.define(
         notEmpty: true,
       },
     },
+    role: {
+      type: DataTypes.ENUM("customer", "admin"),
+      allowNull: false,
+      defaultValue: "customer",
+      validate: {
+        notEmpty: true,
+        isIn: [["customer", "admin"]],
+      },
+    },
   },
   {
     timestamps: true,

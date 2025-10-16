@@ -9,7 +9,7 @@ const port = 3000;
 app.use(express.json());
 
 app.use("/api/v1/users", userRoutes);
-app.use("/api/v1/properties", propertyRoutes);
+app.use("/api/v1/", propertyRoutes);
 sequelize
   .sync({ alter: true })
   .then(() => {
