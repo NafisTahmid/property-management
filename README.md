@@ -60,11 +60,11 @@ In order to do create, update or delete operations the user must be authenticate
 	"price":"Demo price",
 	"status":"available"
 	}`
----
-	User could update one or all of the fields.
+	###### User could update one or all of the fields.
 - Delete a property:
 	-  Request type: ***DELETE***
 	- Endpoint: /api/v1/property/:id
+
 
 
 
