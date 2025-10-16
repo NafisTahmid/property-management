@@ -50,7 +50,7 @@ In order to do create, update or delete operations the user must be authenticate
 	"price":"Demo price",
 	"status":"available"
 	}`
-	Please note status could be set to only ***available or sold***
+	###### Please note status could be set to only ***available or sold***
 - Update a property:
 	-  Request type: ***PUT***
 	- Endpoint: /api/v1/property/:id
@@ -64,6 +64,7 @@ In order to do create, update or delete operations the user must be authenticate
 - Delete a property:
 	-  Request type: ***DELETE***
 	- Endpoint: /api/v1/property/:id
+
 
 
 
