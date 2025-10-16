@@ -1,5 +1,11 @@
 # property-management
 
+## To run the app:
+
+- Clone the repository.
+- Create a .env file and put the required value.
+- Run the project by typing "npm run dev" command.
+
 ## 1. Database connection
 
 In order to connect a database, at first please create .env file and add the database credentials by following the config/database.js file.
@@ -41,7 +47,7 @@ Authentication is needed to create, update or delete data. User can do the follo
 
 ## 4. Property CRUD operations
 
-In order to do create, update or delete operations the user must be authenticated as a result, she/he needs to add the token in the **_Headers_** of such requests. Example:
+In order to do create, update or delete operations the user must be authenticated as a result, she/he needs to add the token in the **_Headers_** of such requests. Procedure:
 **_Authorization_**: **_Bearer "token value"_**
 
 - Get all properties:
