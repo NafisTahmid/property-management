@@ -3,6 +3,7 @@
 ## To run the app:
 
 - Clone the repository.
+- Please create a postgresql database in your localhost in order to run the project.
 - Create a .env file and put the required value.
 - Run the project by typing "npm run dev" command.
 
