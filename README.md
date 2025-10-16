@@ -108,7 +108,7 @@ In order to do create, update or delete operations the user must be authenticate
   "price":800000,
   "status":"available"
 }`
-  - {
+  - Response:{
     "message": "Property updated successfully",
     "success": true
     }
