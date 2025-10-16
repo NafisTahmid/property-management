@@ -1,16 +1,17 @@
 import express from "express";
 import sequelize from "./config/database.js";
 import userRoutes from "./routes/userRoutes.js";
+import propertyRoutes from "./routes/propertyRoutes.js";
 
 const app = express();
 const port = 3000;
 
 app.use(express.json());
 
-app.use("/api/v1/user", userRoutes);
-
+app.use("/api/v1/users", userRoutes);
+app.use("/api/v1/properties", propertyRoutes);
 sequelize
-  .sync({ force: true })
+  .sync({ alter: true })
   .then(() => {
     console.log("Database synced successfully!");
   })

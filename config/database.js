@@ -24,7 +24,7 @@ import { Sequelize } from "sequelize";
 const sequelize = new Sequelize("property-management", "postgres", "1234", {
   host: "localhost",
   dialect: "postgres",
-  logging: false,
+  logging: true,
 });
 
 export default sequelize;
