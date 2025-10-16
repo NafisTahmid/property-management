@@ -29,7 +29,9 @@ export const createPropertyController = async (req, res) => {
 
 export const getPropertiesController = async (req, res) => {
   try {
-    const properties = await Property.findAll();
+    const properties = await Property.findAll({
+      order: [["createdAt", "DESC"]],
+    });
     if (!properties) {
       return res
         .status(404)
